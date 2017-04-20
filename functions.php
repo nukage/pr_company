@@ -212,7 +212,3 @@ echo get_the_post_thumbnail( $id, 'thumbnail' );
    //          return;
    //      }
    //  }
-
-?>
-
-
