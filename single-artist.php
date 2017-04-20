@@ -157,7 +157,7 @@ endif;
                                 <div class="col-lg-12 underline" >
                                   
                                     <h4>PRESS RELEASES</h4>
-                                    <a href="http://localhost:8080/wordpress/artist-press-releases/?the_artist=<?php echo get_the_ID();?>" class="btn-view-all pull-right text-right" >View All</a> 
+                                    <a href="../../artist-press-releases/?the_artist=<?php echo get_the_ID();?>" class="btn-view-all pull-right text-right" >View All</a> 
                                 </div><!--/underline-->
                                       <?php
                                       

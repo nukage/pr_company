@@ -902,6 +902,12 @@ h1 {
 .biography .bio-read-btn[aria-expanded="false"] .chevron:after {
   content: "\f196"; }
 
+.press-releases-archive h2.widget-title {
+  text-transform: none;
+  font-weight: 400;
+  font-size: 17px;
+  margin-bottom: 8px; }
+
 .press-releases-archive .btn-read-more:after, .press-releases-archive .btn-view-all:after {
   padding-left: 4px;
   content: '\f105';
