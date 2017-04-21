@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying press release pages
+ * The template for displaying album pages
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *
@@ -14,7 +14,7 @@ get_header(); ?>
 
 <div class="container top press-releases-single"  >
     <div class="page-title text-center center">
-      <h1>Press Releases</h1>
+      <h1>ALBUM</h1>
       <hr>
     </div><!--/page-title text-center center-->
   <div class="container">
@@ -39,7 +39,7 @@ get_header(); ?>
  
     <?php if (has_post_thumbnail($post->id)): ?>
 
-        <?php echo get_the_post_thumbnail($post->id , 'pr-slider-image' , array( 'class' => 'img-responsive' ) );?>
+        <?php echo get_the_post_thumbnail($post->id , 'large' , array( 'class' => 'img-responsive' ) );?>
 
           
 
@@ -48,14 +48,32 @@ get_header(); ?>
 
           
                       <a href="<?php echo get_permalink($artist_id);?>">
-                     <?php echo get_the_post_thumbnail($artist_id , 'pr-slider-image' , array( 'class' => 'img-responsive' ) );?>   
+                     <?php echo get_the_post_thumbnail($artist_id , 'large' , array( 'class' => 'img-responsive' ) );?>   
                       </a>
         <?php endif;?>
  
 
 
                   <h3 class="artist-name"><a href="<?php echo get_permalink($artist_id);?>"><?php echo $artist_name; ?></a></h3>
-                  <h4><?php echo get_the_time('F j, Y'); ?></h4>
+              
+
+                  <?php 
+
+// get raw date
+$date = get_field(release_date); 
+
+
+// make date object
+$date = new DateTime($date);
+?>
+
+
+                                         <div>
+                                            <strong>Release Date: </strong><?php echo $date->format('j.m.Y'); ?> <br>
+                                            <strong>Label: </strong><?php echo get_field(label); ?> 
+                                         </div>
+
+
                 </div><!--/row-->
                 <div class="col-sm-8">
                      <section>

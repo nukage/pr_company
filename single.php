@@ -9,15 +9,25 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+<?php
+/**
+ * The template for displaying artist pages
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
+ *
+ * @package pr_company
+ */
 
-		<?php
+get_header(); ?>
+ <div class="container top"  >
+    <div class="row">
+          <div class="col-sm-12">
+ 		 <?php
 		while ( have_posts() ) : the_post();
 
 			get_template_part( 'template-parts/content', get_post_format() );
 
-			the_post_navigation();
+			
 
 			// If comments are open or we have at least one comment, load up the comment template.
 			if ( comments_open() || get_comments_number() ) :
@@ -26,10 +36,11 @@ get_header(); ?>
 
 		endwhile; // End of the loop.
 		?>
-
-		</main><!-- #main -->
-	</div><!-- #primary -->
+</div></div>
+	</div>
 
 <?php
-get_sidebar();
+ 
 get_footer();
+
+ 
