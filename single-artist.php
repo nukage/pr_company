@@ -31,7 +31,7 @@ if (has_post_thumbnail):
     $full_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full');
     echo '<a href="' . $full_image_url[0] . '" title="' . the_title_attribute('echo=0') . '" ';?>
      target="_blank"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> Download Hi-Res</a></p>
-                        </li>;
+                        </li>
 <?php
 endif;                 
 
@@ -73,7 +73,7 @@ if (has_post_thumbnail):
     $full_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full');
     echo '<a href="' . $full_image_url[0] . '" title="' . the_title_attribute('echo=0') . '" ';?>
      target="_blank"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> Download Hi-Res</a></p>
-                        </li>;
+                        </li>
 <?php
 endif;  
 if( class_exists('Dynamic_Featured_Image') ):
@@ -134,24 +134,83 @@ endif;
              </div>     <!--/col-sm-6-->             
             <div class="col-sm-5 col-sm-offset-1"> 
                   <div class="about-text artist-rt-col"> 
+                     <?php if(types_child_posts("album")) : 
+                 
+                     ?>
+
                         <div class="block music">
                              <div class="col-lg-12 underline" > 
                                 <h4>MUSIC</h4> 
                                 <a href="#" class="btn-view-all pull-right text-right" >View All</a> 
                              </div><!--/underline-->
+
+                             <?php $childargs = array(
+                                  'post_type' => 'album',
+                                  'numberposts' => -1,
+                                  'orderby' => 'date',
+                                  'order' => 'ASC',
+                                  'meta_query' => array(array('key' => '_wpcf_belongs_artist_id', 'value' => get_the_ID()))
+ 
+                                  );
+                                  $child_posts = get_posts($childargs);
+                                  foreach ($child_posts as $child_post) {  ?>
+
+
                                 <div class="row">
                                     <div class="col-md-6 col-lg-5">
-                                        <img src="img/artist/mollytuttle3_th.jpg" class="img-responsive album-art" alt="Album Art"> <a class="album-art-link" href="img/artist/MollyTuttle3.jpg"> <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> Download Hi-Res    </a>      		
+
+                                      <?php if (has_post_thumbnail($child_post)): ?>
+               <?php $full_image_url = wp_get_attachment_image_src( get_post_thumbnail_id($child_post), 'full');?>
+          <a href="<?php echo get_permalink($child_post);?>"><?php echo get_the_post_thumbnail($child_post , 'pr-slider-image' , array( 'class' => 'img-responsive' ) );?></a>
+
+         
+
+           <a class="album-art-link" target="_blank" href="<?php echo $full_image_url[0];?>"> <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> Download Hi-Res    </a> 
+ 
+ 
+
+ 
+
+
+
+ 
+ 
+
+     <?php else : ?>
+
+          <a href="<?php echo get_permalink($artist_id);?>"><?php echo get_the_post_thumbnail($artist_id , 'pr-slider-image' , array( 'class' => 'img-responsive' ) );?></a>
+        <?php endif;?>
+
+
+
+                                            		
                                     </div><!--/col-md-6 col-lg-5-->
                                     <div class="col-md-6 col-lg-7">
-                                        <h4>RISE</h4>
+                                        <h4><?php echo $child_post->post_title; ?></h4>
+
+                                        <?php 
+
+// get raw date
+$date = $child_post->release_date; 
+
+
+// make date object
+$date = new DateTime($date);
+?>
+
+
                                          <div>
-                                            <strong>Release Date: </strong>6.2.2017<br>
-                                            <strong>Label: </strong>Independent
+                                            <strong>Release Date: </strong><?php echo $date->format('j.m.Y'); ?> <br>
+                                            <strong>Label: </strong><?php echo $child_post->label; ?> 
                                          </div>
                                     </div>
                                 </div><!--/row-->
+
+                              <?php  }
+                                          ?>  
                             </div><!--/block music-->
+
+                          <?php  endif; ?>
                             <?php if(types_child_posts("press-release")) : ?>
                             <div class="press-releases block">
                                 <div class="col-lg-12 underline" >
