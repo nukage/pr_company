@@ -21,7 +21,7 @@ h1 strong {
 
 h2 {
   text-transform: uppercase;
-  line-height: 20px;
+  line-height: 34px;
   font-weight: 600;
   margin: 0;
   color: #555; }
@@ -747,8 +747,9 @@ h1 {
   content: '\2022';
   padding: 0 5px 0 0; }
 
-.navbar-custom form {
-  float: right; }
+@media (max-width: 991px) {
+  .navbar-custom form {
+    float: left; } }
 
 .search-custom-button {
   height: 34px;

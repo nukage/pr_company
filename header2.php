@@ -53,35 +53,37 @@
   <div class="container">
    <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse"> <i class="fa fa-bars"></i> </button>
-      <a class="navbar-brand page-scroll" href="<?php echo get_site_url();  ?>">THE PRESS HOUSE</a> </div>
-    <didiv class="collapse navbar-collapse navbar-right navbar-main-collapse">
-      <ul class="nav navbar-nav">
-        <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
-      
-        <li> <a class="page-scroll" href="<?php echo get_site_url() ; ?>/">Home</a> </li>
-        <li> <a class="page-scroll" href="#">About</a> </li>
-        <li> <a class="page-scroll" href="<?php echo get_site_url() ; ?>/press-release">Releases</a> </li>
-        <li> <a class="page-scroll" href="#">Calendar</a> </li>
-        <li> <a class="page-scroll" href="#">Case Studies</a> </li>
-        <li> <a class="page-scroll" href="#">Blog</a>
-       </li><li>
-       <form role="search" method="get" id="searchform" class="searchform navbar-form" action="http://www.thepresshouse.dev/"> 
+      <a class="navbar-brand page-scroll" href="<?php get_site_url() ?>">THE PRESS HOUSE</a> </div>
+    <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+    <!-- Collect the nav links, forms, and other content for toggling --> 
+
+<?php $defaults = array(
+  'theme_location'  => '',
+  'menu'            => '',
+  'container_id'    => '',
+  'menu_class'      => 'nav navbar-nav',
+  'menu_id'         => '',
+  'echo'            => true,
+  'fallback_cb'     => 'wp_page_menu',
+  'before'          => '',
+  'after'           => '',
+  'link_before'     => '',
+  'link_after'      => '',
+  // 'items_wrap'      => '<ul class="nav navbar-nav"> <li></ul>',
+  'depth'           => 0,
+  'walker'          => ''
+);
+ 
+wp_nav_menu( $defaults );
+?>
+ 
+<form role="search" method="get" id="searchform" class="searchform" action="http://www.thepresshouse.dev/"> 
 <!-- <label class="screen-reader-text" for="s">Search for:</label>  -->
- <div class="input-group">
-<input type="text" value="" name="s" id="s" placeholder="Search Clients" class="form-control search-custom-form"  /> 
-    <div class="input-group-btn">
-                <button class="btn btn-default search-custom-button" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-            </div>
-</div>
+<input type="text" value="" name="s" id="s" /> 
+<input type="submit" id="searchsubmit" value="Search" /> 
 </form>
-
-
     
-        </li>
-
-      </ul>
-    </div>
-    <!-- /.navbar-collapse --> 
+</div>
    <!--  <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
       <ul class="nav navbar-nav">
        

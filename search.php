@@ -9,8 +9,9 @@
 
 get_header(); ?>
 
-	<section id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+  <div class="container search-page">
+          <div class="row">
+            <div class="col-sm-12">
 
 		<?php
 		if ( have_posts() ) : ?>
@@ -40,9 +41,10 @@ get_header(); ?>
 
 		endif; ?>
 
-		</main><!-- #main -->
-	</section><!-- #primary -->
+		</div><!-- #main -->
+	</div><!-- #primary -->
+</div>
 
 <?php
-get_sidebar();
+ 
 get_footer();
