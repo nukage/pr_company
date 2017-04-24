@@ -71,7 +71,7 @@
   'after'           => '',
   'link_before'     => '',
   'link_after'      => '',
-  // 'items_wrap'      => '<ul class="nav navbar-nav"> </ul>',
+  // 'items_wrap'      => '<ul class="nav navbar-nav"> <li></ul>',
   'depth'           => 0,
   'walker'          => ''
 );
@@ -79,7 +79,11 @@
 wp_nav_menu( $defaults );
 ?>
  
- 
+<form role="search" method="get" id="searchform" class="searchform" action="http://www.thepresshouse.dev/"> 
+<!-- <label class="screen-reader-text" for="s">Search for:</label>  -->
+<input type="text" value="" name="s" id="s" /> 
+<input type="submit" id="searchsubmit" value="Search" /> 
+</form>
     
 
    <!--  <div class="collapse navbar-collapse navbar-right navbar-main-collapse">

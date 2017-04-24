@@ -747,6 +747,9 @@ h1 {
   content: '\2022';
   padding: 0 5px 0 0; }
 
+.navbar-custom form {
+  float: right; }
+
 .search-custom-button {
   height: 34px;
   padding: 6px 12px;
