@@ -63,6 +63,7 @@ endif;
                          
                   </ul>
                 </div><!--/slider flexslider-->
+                <?php if($featured_images): ?>
                 <div id="carousel" class="flexslider">
                   <ul class="slides">
                      <?php   
@@ -106,6 +107,7 @@ endif;
                     
                   </ul>
                 </div><!--/carousel flexslider-->
+              <?php endif;?>
               </section><!--/slider block -->
                   <?php
                 if(get_field(audio_player_embed)) : ?>
@@ -272,6 +274,14 @@ echo $content_parts['main'];
                   <h4>Press Clippings</h4>
                   </div>
                   <?php the_field(press_clippings); ?> 
+                </section>
+              <?php endif;
+               if(get_field(contact_info)) :?>
+                              <section class="block contact-info">
+                  <div class="underline">
+                  <h4>Contact Info</h4>
+                  </div>
+                  <?php the_field(contact_info); ?> 
                 </section>
               <?php endif;?>
                   </div><!--/about-text artist-rt-col-->

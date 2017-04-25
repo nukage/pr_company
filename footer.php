@@ -14,7 +14,7 @@
 
 <div id="footer">
   <div class="container">
-    <p>Copyright &copy; The Press House. Designed by <a href="http://www.d4gp.com" rel="nofollow" target="_blank">D4GP</a></p>
+    <p>Copyright &copy; <?php echo get_bloginfo('name') ; ?>. Designed by <a href="http://www.d4gp.com" rel="nofollow" target="_blank">D4GP</a></p>
   </div>
 </div>
 </div><!--page-content-->
@@ -25,11 +25,10 @@
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -
 <script type="text/javascript" src="js/jquery.1.11.1.js"></script> -->
-<!-- Include all compiled plugins (below), or include individual files as needed -->
+<!-- Include all compiled plugins (below), or include individual files as needed 
 <script type="text/javascript" src="<?php get_template_directory_uri() ?>js/bootstrap.js"></script> 
 <script type="text/javascript" src="<?php get_template_directory_uri() ?>js/SmoothScroll.js"></script> 
 <script type="text/javascript" src="<?php get_template_directory_uri() ?>js/jquery.prettyPhoto.js"></script> 
-<script type="text/javascript" src="<?php get_template_directory_uri() ?>js/jquery.isotope.js"></script> 
 <script type="text/javascript" src="<?php get_template_directory_uri() ?>js/jquery.parallax.js"></script> 
 <script type="text/javascript" src="<?php get_template_directory_uri() ?>js/jqBootstrapValidation.js"></script> 
 <script type="text/javascript" src="<?php get_template_directory_uri() ?>js/contact_me.js"></script> 
@@ -37,7 +36,7 @@
 
   <script src="<?php get_template_directory_uri() ?>js/jquery.mousewheel.js"></script>
 
-  <script defer src="<?php get_template_directory_uri() ?>js/demo.js"></script>
+  <script defer src="<?php get_template_directory_uri() ?>js/demo.js"></script>-->
 
 
 
