@@ -117,15 +117,14 @@ function pr_company_scripts() {
 	wp_enqueue_style( 'pr_company-style', get_stylesheet_uri() );
 	wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/js/bootstrap.js', array() , false, true );
 	wp_enqueue_script( 'pr_company-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
-
 	wp_enqueue_script( 'pr_company-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
-
 	wp_enqueue_script( 'flexslider', get_template_directory_uri() . '/js/jquery.flexslider-min.js', array() , false, true );
 	wp_enqueue_script( 'flexsettings', get_template_directory_uri() . '/js/flex-settings.js', array() , false, true );
-	 wp_register_script( 'imagesloaded', get_theme_file_uri( '/js/libs/imagesloaded.pkgd.min.js' ), array( 'jquery' ), '4.1.1', true );
-	    wp_register_script( 'isotope', get_theme_file_uri( '/js/libs/isotope.pkgd.min.js' ), array( 'imagesloaded' ), '3.0.1', true );
-	   // wp_enqueue_script( 'isotopeinwp-settings', get_theme_file_uri( '/js/isotope.settings.js' ), array( 'isotope' ), '1.0', true );
-	     wp_enqueue_script( 'main', get_theme_file_uri( '/js/main2.js' ), array( 'isotope' ), '1.0', true );
+	wp_register_script( 'imagesloaded', get_theme_file_uri( '/js/libs/imagesloaded.pkgd.min.js' ), array( 'jquery' ), '4.1.1', true );
+	wp_register_script( 'isotope', get_theme_file_uri( '/js/libs/isotope.pkgd.min.js' ), array( 'imagesloaded' ), '3.0.1', true );
+	wp_enqueue_script( 'main', get_theme_file_uri( '/js/main2.js' ), array( 'isotope' ), '1.0', true );
+	wp_enqueue_script( 'wow', get_template_directory_uri() . '/js/wow.min.js', array() , false, true );
+	wp_enqueue_script( 'wow-settings', get_template_directory_uri() . '/js/wow-settings.js', array() , false, true );
 	
 
  
@@ -134,8 +133,9 @@ function pr_company_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'pr_company_scripts' );
 
+
+add_action( 'wp_enqueue_scripts', 'pr_company_scripts' );
 /**
  * Implement the Custom Header feature.
  */

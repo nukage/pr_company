@@ -52,11 +52,11 @@ get_header(); ?>
 
 			endwhile; // End of the loop.
 			?>
- <div class="page-title text-center center">
+ <div class="page-title text-center center wow fadeInUp">
       <h1>Clients</h1>
       <hr>
     </div>
-  <div class="container"> 
+  <div class="container wow fadeInUp" data-wow-delay=".5s"> 
     <?php
 
     $query = new WP_query(
@@ -104,8 +104,9 @@ get_header(); ?>
       </ul>
       <div class="clearfix"></div>
     </div>
-    <div id="artists" class="row">
-    	 <div class="portfolio-items">
+    <div id="artists" class="row " >
+
+   	 <div class="portfolio-items " >
     	<?php foreach ($query->posts as $post) {  ?>
  
 <?php $allClasses = get_post_class();   ?>  
