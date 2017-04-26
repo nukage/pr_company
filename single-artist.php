@@ -143,7 +143,7 @@ endif;
                         <div class="block music">
                              <div class="col-lg-12 underline" > 
                                 <h4>MUSIC</h4> 
-                                <a href="#" class="btn-view-all pull-right text-right" >View All</a> 
+                                <a href="../../albums/?the_artist=<?php echo get_the_ID();?>" class="btn-view-all pull-right text-right" >View All</a> 
                              </div><!--/underline-->
 
                              <?php $childargs = array(
