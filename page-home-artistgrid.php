@@ -114,8 +114,13 @@ get_header(); ?>
  <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3   <?php foreach ($allClasses as $class) { echo $class . " "; } ?>">
           <div class="portfolio-item">
             <div class="hover-bg"> <a href="<?php echo get_permalink($post);?>" title="<?php echo the_title();?>"  >
+                   <?php if (get_field(on_tour)):
+echo '<div class="tour-icon">On Tour</div>';
+                endif;?>
               <div class="hover-text">
+            
                 <h4><?php echo the_title();?></h4>
+               
                  
               </div>
           <a href="<?php echo get_permalink($post);?>"><?php echo get_the_post_thumbnail($post, 'pr-slider-image' , array( 'class' => 'img-responsive' ));?></a>
