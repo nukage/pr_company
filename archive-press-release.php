@@ -53,7 +53,7 @@ while ( have_posts() ) : the_post(); ?>
                           ?>
 
 
-  <article>
+  <article class="wow fadeInUp" data-wow-delay=".5s">
   <div class="row">
       <div class="col-sm-4">
 
@@ -118,7 +118,7 @@ while ( have_posts() ) : the_post(); ?>
       </div> <!-- /.col-sm-8 -->
 
           <div class="col-sm-3 col-sm-offset-1">
-            <section class="block past-release-nav">
+            <section class="block past-release-nav wow fadeInUp" data-wow-delay="1s">
 
             	<?php get_sidebar('archive');?>
 

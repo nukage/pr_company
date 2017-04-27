@@ -22,7 +22,7 @@ get_header(); ?>
             <div class="col-sm-12">
               <article>
                 <div class="row">
-                    <div class="col-sm-4">
+                    <div class="col-sm-4 wow fadeInUp" data-wow-delay=".5s">
 
                       <?php 
                           // Get the ID of the parent post, which belongs to the "Writer" post type
@@ -75,7 +75,7 @@ $date = new DateTime($date);
 
 
                 </div><!--/row-->
-                <div class="col-sm-8">
+                <div class="col-sm-8 wow fadeInUp" data-wow-delay="1s">
                      <section>
                         <?php the_title( '<h2 class="entry-title">', '</h2>' ); 
                         if(get_field(sub_title)) : 

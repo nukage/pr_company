@@ -37,7 +37,7 @@ get_header(); ?>
 		 <?php if(types_child_posts("press-release")) : ?>
             <?php $child_posts = types_child_posts("press-release");
                 foreach ($child_posts as $child_post) { ?>
-               <article>
+               <article class="wow fadeInUp" data-wow-delay=".5s">
   <div class="row">
       <div class="col-sm-4">
 
@@ -94,7 +94,7 @@ get_header(); ?>
       </div> <!-- /.col-sm-8 -->
 
           <div class="col-sm-3 col-sm-offset-1">
-            <section class="block past-release-nav">
+            <section class="block past-release-nav wow fadeInUp" data-wow-delay=".5s">
  
            	<?php // get_sidebar('archive');?>
 

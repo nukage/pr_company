@@ -28,6 +28,11 @@ jQuery(document).ready( function($) {
             return false;
         });
 
+         // layout Isotope again after all images have loaded
+    $container.imagesLoaded( function() {
+        $container.isotope('layout');
+    });
+
     });
 	
  

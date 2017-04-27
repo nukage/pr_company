@@ -53,7 +53,7 @@ get_header(); ?>
 			endwhile; // End of the loop.
 			?>
  <div class="page-title text-center center wow fadeInUp">
-      <h1>Clients</h1>
+      <h1>Artists</h1>
       <hr>
     </div>
   <div class="container wow fadeInUp" data-wow-delay=".5s"> 
