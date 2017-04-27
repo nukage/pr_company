@@ -63,6 +63,7 @@ get_header(); ?>
     array(
         'post_type' => array('artist'),
         'post_status' => 'publish',
+        'orderby' => 'title',
         'order' => 'ASC'
     )
 );
