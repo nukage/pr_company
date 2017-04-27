@@ -3,7 +3,7 @@
         <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
       
         <li> <a class="page-scroll" href="<?php echo get_site_url() ; ?>/">Home</a> </li>
-        <li> <a class="page-scroll" href="#">About</a> </li>
+        <li> <a class="page-scroll" href="<?php echo get_site_url() ; ?>/about">About</a> </li>
         <li> <a class="page-scroll" href="<?php echo get_site_url() ; ?>/press-release">Releases</a> </li>
         <li> <a class="page-scroll" href="#">Calendar</a> </li>
         <li> <a class="page-scroll" href="#">Case Studies</a> </li>
