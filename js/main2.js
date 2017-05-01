@@ -3,6 +3,11 @@
 // Portfolio Isotope Filter
 jQuery(document).ready( function($) {
         var $container = $('.portfolio-items');
+
+        if ($('body.home').length > 0)
+        {
+
+
         $container.isotope({
             filter: '.category-featured',
             animationOptions: {
@@ -13,6 +18,10 @@ jQuery(document).ready( function($) {
 
         });
         $('#category-featured').addClass('active');
+        }
+        else{
+            $('#all').addClass('active');
+        };
         $('.cat a').click(function() {
             $('.cat .active').removeClass('active');
             $(this).addClass('active');

@@ -82,7 +82,7 @@ get_header(); ?>
       <ul class="cat">
         <li>
           <ol class="type">
-          	 <li><a href="#" data-filter="*" >All</a></li>
+          	 <li><a href="#" data-filter="*" id="all">All</a></li>
 				<?php
 				if ( !empty( $terms ) && !is_wp_error( $terms ) ) {
                 foreach( $terms as $term) {
@@ -105,7 +105,8 @@ get_header(); ?>
       </ul>
       <div class="clearfix"></div>
     </div>
-    <div id="artists" class="row " >
+
+       <div id="artists" class="row " >
 
    	 <div class="portfolio-items " >
     	<?php foreach ($query->posts as $post) {  ?>
@@ -138,6 +139,7 @@ echo '<div class="tour-icon">On Tour</div>';
 
 </div>
     </div>
+
   </div><!-- Container -->
 		</div>
 	</div>
