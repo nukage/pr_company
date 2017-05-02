@@ -283,7 +283,7 @@ echo $content_parts['main'];
                   </div>
                   <?php the_field(contact_info); ?> 
                 </section>
-              <?php endif;?
+              <?php endif;
               if(get_field(tour_widget)) :?>>
                <section class="block contact-info">
                   <div class="underline">
