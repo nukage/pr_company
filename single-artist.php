@@ -284,7 +284,7 @@ echo $content_parts['main'];
                   <?php the_field(contact_info); ?> 
                 </section>
               <?php endif;
-              if(get_field(tour_widget)) :?>>
+              if(get_field(tour_widget)) :?>
                <section class="block contact-info">
                   <div class="underline">
                   <h4>Tour Dates</h4>

@@ -197,6 +197,22 @@ echo get_the_post_thumbnail( $id, 'thumbnail' );
 	}	
 }
 
+
+
+function metakey_no_featured( $where )
+{
+    global $wp_query;
+    global $wpdb;
+    $where .= $wpdb->prepare(" AND $wpdb->posts.ID NOT IN ( SELECT post_id FROM $wpdb->postmeta WHERE ($wpdb->postmeta.post_id = $wpdb->posts.ID) AND meta_key = %s AND meta_value = 1) ",'tour_widget');
+
+    return $where;
+}
+
+
+
+
+
+
  
    //  add_filter( 'the_content', 'my_artist_filter' );
 

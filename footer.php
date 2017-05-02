@@ -14,6 +14,9 @@
 
 <div id="footer">
   <div class="container">
+    <div id="twitter-widget">
+    <?php dynamic_sidebar( 'footer-sidebar' ); ?>
+    </div>
      Copyright &copy; <?php echo get_bloginfo('name') ; ?>. <a href="http://www.d4gp.com" target="blank" class="d4gp-link">
      <div id="f1_container">
      	<div id="f1_card">
@@ -26,7 +29,8 @@
 </div>
 </div><!--page-content-->
  
-<?php wp_footer(); ?>
+<?php 
+wp_footer(); ?>
 
 </body>
 </html>
