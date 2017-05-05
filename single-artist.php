@@ -279,7 +279,7 @@ echo $content_parts['main'];
                if(get_field(contact_info)) :?>
                               <section class="block contact-info">
                   <div class="underline">
-                  <h4>Contact Info</h4>
+                  <h4>Contact</h4>
                   </div>
                   <?php the_field(contact_info); ?> 
                 </section>
