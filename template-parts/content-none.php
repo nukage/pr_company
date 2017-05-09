@@ -14,7 +14,7 @@
 		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'pr_company' ); ?></h1>
 	</header><!-- .page-header -->
 
-	<div class="page-content">
+	<div class="page-content" align="center">
 		<?php
 		if ( is_home() && current_user_can( 'publish_posts' ) ) : ?>
 
@@ -23,8 +23,16 @@
 		<?php elseif ( is_search() ) : ?>
 
 			<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'pr_company' ); ?></p>
+			<form role="search" method="get" id="searchform" class="searchform navbar-form" action="<?php echo get_site_url() ; ?>"> 
+<!-- <label class="screen-reader-text" for="s">Search for:</label>  -->
+ <div class="input-group">
+<input type="text" value="" name="s" id="s" placeholder="Search" class="form-control search-custom-form"  /> 
+    <div class="input-group-btn">
+                <button class="btn btn-default search-custom-button" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+</div>
+</form>
 			<?php
-				get_search_form();
 
 		else : ?>
 
