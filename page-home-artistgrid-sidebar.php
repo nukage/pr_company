@@ -268,14 +268,14 @@ echo '<div class="tour-icon">On Tour</div>';
 <div class="row">
   <div class="col-md-6   home-events wow fadeInUp" data-wow-delay=".2s">      <div class="underline"> 
                                 <h4>UPCOMING EVENTS</h4> 
-                                <a href="../../events" class="btn-view-all pull-right text-right">View All</a> 
+                                <a href="<?php echo get_site_url() ; ?>/events" class="btn-view-all pull-right text-right">View All</a> 
                               </div>
  <?php dynamic_sidebar( 'home1' ); ?> <div class="clearfix"></div></div>
 
  <div class="col-md-5 col-md-push-1 home-releases">
 <div class="underline"> 
                                 <h4>LATEST PRESS RELEASES</h4> 
-                                <a href="../../press-release" class="btn-view-all pull-right text-right">View All</a> 
+                                <a href="<?php echo get_site_url() ; ?>/press-release" class="btn-view-all pull-right text-right">View All</a> 
                              </div>
  
 
