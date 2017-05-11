@@ -287,8 +287,10 @@ hr {
   background: #f6f6f6; }
 
 .categories {
-  padding-bottom: 30px;
-  text-align: center; }
+  padding-bottom: 20px;
+  text-align: center;
+  position: relative;
+  left: -26px; }
 
 ul.cat li {
   display: inline-block; }
@@ -347,38 +349,63 @@ ol.type li a:hover {
 .portfolio-item {
   margin-bottom: 30px; }
 
-.portfolio-item .hover-bg {
-  max-height: 190px;
-  overflow: hidden;
-  position: relative; }
+.portfolio-item {
+  background: #13314e; }
+  .portfolio-item .hover-bg {
+    max-height: 210px;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.5s; }
+
+.portfolio-item .hover-bg:hover {
+  opacity: .6;
+  transition: all 0.5s;
+  background: #13314e; }
 
 .hover-bg .hover-text {
-  position: absolute;
   text-align: center;
-  margin: 0 auto;
-  color: rgba(255, 255, 255, 0.6);
-  background: rgba(0, 0, 0, 0.66);
-  padding: 25% 0;
-  height: 100%;
+  margin: 0;
+  background: rgba(0, 0, 0, 0.4);
+  transition: all 0.5s;
+  position: absolute;
+  bottom: 0;
   width: 100%;
-  opacity: 0;
-  transition: all 0.5s; }
+  z-index: 1; }
+
+.tour-icon {
+  position: absolute;
+  z-index: 1;
+  color: white;
+  background: #13314e;
+  padding: 5px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  right: 2px;
+  top: 2px;
+  font-size: 10px; }
+
+.hover-bg:hover .hover-text {
+  padding-bottom: 4%; }
 
 .hover-bg .hover-text > h4 {
-  opacity: 0;
-  -webkit-transform: translateY(100%);
-  transform: translateY(100%);
+  opacity: 1;
+  margin: 0;
   transition: all 0.3s;
-  color: #f6f6f6; }
+  color: #f6f6f6;
+  padding: 3%; }
 
 .hover-bg:hover .hover-text > h4 {
-  opacity: 1;
-  -webkit-backface-visibility: hidden;
-  -webkit-transform: translateY(0);
-  transform: translateY(0); }
+  opacity: 1; }
+
+.hover-bg img {
+  transition: all .5s; }
+
+.hover-bg:hover img {
+  transition: all .5s;
+  transform: scale(1.2) translateY(-3%); }
 
 .hover-bg .hover-text > p {
-  opacity: 0;
+  opacity: 1;
   -webkit-transform: translateY(100%);
   transform: translateY(100%);
   transition: all 0.3s; }
@@ -390,7 +417,7 @@ ol.type li a:hover {
   transform: translateY(0); }
 
 .hover-bg .hover-text > i {
-  opacity: 0;
+  opacity: 1;
   -webkit-transform: translateY(0);
   transform: translateY(0);
   transition: all 0.3s; }
@@ -560,7 +587,8 @@ a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:acti
   background: #333;
   color: #777;
   padding: 20px 0;
-  text-align: center; }
+  text-align: center;
+  max-height: 500px; }
 
 #footer a {
   color: #999999; }
@@ -571,10 +599,6 @@ a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:acti
 #footer p {
   font-size: 13px;
   margin-top: 10px; }
-
-@media (max-width: 768px) {
-  .hover-bg .hover-text {
-    padding: 20%; } }
 
 @media (max-width: 640px) {
   #intro .intro-body H1 {
@@ -715,7 +739,7 @@ a:hover {
 
 #page-content {
   background: #FCFCFC;
-  padding-top: 60px; }
+  padding-top: 51px; }
 
 h1 {
   text-transform: uppercase;
@@ -724,6 +748,25 @@ h1 {
 
 .music .album-art {
   padding-bottom: 10px; }
+
+.music img {
+  transition: all .5s; }
+
+.music img:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 255, 255, 0.5);
+  transition: all .3s linear; }
+
+.music img:hover {
+  -webkit-filter: brightness(80%); }
 
 .music .album-art-link {
   margin-bottom: 10px;
@@ -826,6 +869,20 @@ h1 {
 .social-info a[href*="twitter"]:hover:before {
   background-color: #00aced; }
 
+.social-info a[href*="soundcloud"]:before {
+  content: "\f1be";
+  padding: 7px 5px; }
+
+.social-info a[href*="soundcloud"]:hover:before {
+  background-color: #ff6700; }
+
+.social-info a[href*="bandcamp"]:before {
+  content: "\f2d5";
+  padding: 7px 7px; }
+
+.social-info a[href*="bandcamp"]:hover:before {
+  background-color: #639aa9; }
+
 .social-info a[href*="youtube"]:before {
   content: "\f167";
   padding: 8px 9px; }
@@ -847,14 +904,37 @@ h1 {
 .social-info a[href*="google"]:hover:before {
   background-color: #e25714; }
 
+.social-info a[href*="mailto"]:before {
+  content: "\f0e0";
+  padding: 7px 8px; }
+
+.social-info a[href*="google"]:hover:before {
+  background-color: #e25714; }
+
 .social-info a {
   display: block;
   width: 48%;
   float: left;
   height: 40px; }
 
+.staffmember a {
+  font-weight: 400;
+  font-size: 12px; }
+
+.staffmember a[href*="mailto"]:before {
+  content: "\f0e0";
+  padding: 0;
+  background: transparent;
+  color: #2665a1; }
+  @media (max-width: 1199px) and (min-width: 767px) {
+    .staffmember a[href*="mailto"]:before {
+      display: none; } }
+
 .page-scroll:nth-of-type(2) {
   display: none; }
+
+.staffmember .social-info a {
+  width: 99%; }
 
 @media (max-width: 992px) {
   .navbar-header {
@@ -964,3 +1044,155 @@ ol.type li a:hover {
   color: white;
   border: #2665a1;
   background: #2665a1; }
+
+/************Rotating card**********/
+#f1_container {
+  margin: 0 0 0px 12px;
+  width: 45px;
+  height: 11px;
+  z-index: 1;
+  display: inline-block; }
+
+#f1_container img {
+  position: static !important;
+  vertical-align: top; }
+
+#f1_container {
+  -webkit-perspective: 1000px;
+  -moz-perspective: 1000px;
+  -o-perspective: 1000px;
+  perspective: 1000px; }
+
+#f1_card {
+  width: 100%;
+  height: 100%;
+  -webkit-transform-style: preserve-3d;
+  -webkit-transition: all 1.0s linear;
+  -moz-transform-style: preserve-3d;
+  -moz-transition: all 1.0s linear;
+  -o-transform-style: preserve-3d;
+  -o-transition: all 1.0s linear;
+  transform-style: preserve-3d;
+  transition: all 1.0s linear; }
+
+#f1_container:hover #f1_card, #f1_container.hover_effect #f1_card {
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  transform: rotateY(180deg); }
+
+.face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden; }
+
+.face.back {
+  -webkit-transform: rotateY(180deg);
+  -webkit-box-sizing: border-box;
+  -moz-transform: rotateY(180deg);
+  -moz-box-sizing: border-box;
+  -o-transform: rotateY(180deg);
+  -o-box-sizing: border-box;
+  transform: rotateY(180deg);
+  box-sizing: border-box;
+  color: white;
+  text-align: center; }
+
+.wow {
+  visibility: hidden; }
+
+.staffmember {
+  margin-bottom: 20px; }
+  .staffmember img {
+    margin-bottom: 20px; }
+  .staffmember h4 {
+    margin-top: 0; }
+    @media (max-width: 767px) {
+      .staffmember h4 {
+        font-size: 30px; } }
+
+.home .letters {
+  display: none; }
+
+.letter-selectbox {
+  margin: auto;
+  text-align: center; }
+  .letter-selectbox select {
+    margin-bottom: 20px; }
+
+.letters {
+  text-align: center;
+  margin: 0 auto 20px auto; }
+  @media (max-width: 767px) {
+    .letters {
+      max-width: 220px; } }
+  .letters li {
+    display: inline;
+    margin: 0.5%; }
+
+.page-template-page-tour > article {
+  width: 32%;
+  display: flex;
+  float: left; }
+
+.page-template-page-tour article h3 {
+  border-bottom: 1px dotted #ccc;
+  display: block; }
+
+#twitter-widget {
+  height: 150px;
+  overflow: auto;
+  width: auto; }
+  #twitter-widget #ctf-more {
+    display: none; }
+  #twitter-widget .ctf-header {
+    display: none; }
+  #twitter-widget .ctf-tweets {
+    text-align: left; }
+  #twitter-widget .ctf-tweet-text a {
+    color: #90e1ff; }
+  #twitter-widget .ctf-header-name {
+    color: #2665a1; }
+  #twitter-widget .ctf-author-box {
+    text-align: left; }
+  #twitter-widget .ctf-tweet-actions i {
+    color: white;
+    color: #90e1ff; }
+  #twitter-widget .ctf-tweet-actions span {
+    color: white; }
+
+#footer .footer-contacts p {
+  text-align: left;
+  color: white; }
+
+#footer .footer-contacts p > span {
+  color: #ababab; }
+
+#footer .footer-contacts a {
+  color: #90e1ff; }
+
+.bcard img {
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 40px;
+  position: relative;
+  top: -10px; }
+
+.not-found h1, .not-found h2, .not-found h3, .not-found h4, .not-found p {
+  text-align: center; }
+
+.not-found #page-content .container {
+  min-height: 500px; }
+
+.not-found #searchform {
+  margin-bottom: 100px; }
+
+.search-results h2.entry-title {
+  margin-bottom: 15px; }
+
+.search-results .entry-summary {
+  margin-bottom: 20px; }
