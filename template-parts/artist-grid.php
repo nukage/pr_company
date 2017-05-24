@@ -76,11 +76,11 @@ endif;
       <ul class="cat">
         <li>
           <ol class="type">
-          	 
+          	 <div id="pastclienttxt" style="display:none;"><?php echo get_option('pastclients')?></div>
 			
 			<?php	if ( !empty( $terms ) && !is_wp_error( $terms ) ) {
 
-          echo '<li><a href="#" data-filter=":not(.category-old-friends)" id="all">All</a></li>';
+          echo '<li><a href="#" data-filter=":not(.category-' . get_option('pastclients') . ')" id="all">All</a></li>';
                 foreach( $terms as $term) {
                     ?>
                     <li>

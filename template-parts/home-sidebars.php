@@ -30,14 +30,14 @@
 
         <?php if (has_post_thumbnail($child_post)): ?>
 
-          <a href="<?php echo get_permalink($child_post);?>"><?php echo get_the_post_thumbnail($child_post , 'small' , array( 'class' => 'img-responsive' ) );?></a>
+          <a href="<?php echo get_permalink($child_post);?>"><?php echo get_the_post_thumbnail($child_post , 'pr-slider-thumb' , array( 'class' => 'img-responsive' ) );?></a>
 
           
 
 
           <?php else : ?>
 
-          <a href="<?php echo get_permalink($artist_id);?>"><?php echo get_the_post_thumbnail($artist_id , 'small' , array( 'class' => 'img-responsive' ) );?></a>
+          <a href="<?php echo get_permalink($artist_id);?>"><?php echo get_the_post_thumbnail($artist_id , 'pr-slider-thumb' , array( 'class' => 'img-responsive' ) );?></a>
         <?php endif;?>
 
       

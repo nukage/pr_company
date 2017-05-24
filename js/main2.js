@@ -3,11 +3,10 @@
 // Portfolio Isotope Filter
 jQuery(document).ready( function($) {
         var $container = $('.portfolio-items');
-
+       
+        
         if ($('body.home').length > 0)
         {
-
-
         $container.isotope({
             filter: '.category-featured',
             animationOptions: {
@@ -20,8 +19,10 @@ jQuery(document).ready( function($) {
         $('#category-featured').addClass('active');
         }
         else{
+        var $pastclienttxt= $("#pastclienttxt").html();  
+        var $notpastclienttxt = ':not(.category-' + $pastclienttxt + ')' ;
             $container.isotope({
-            filter: ':not(.category-old-friends)',
+            filter:$notpastclienttxt,
             animationOptions: {
                 duration: 750,
                 easing: 'linear',
@@ -51,5 +52,5 @@ jQuery(document).ready( function($) {
     });
 
     });
-    
+	
  
