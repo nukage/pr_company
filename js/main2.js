@@ -20,6 +20,13 @@ jQuery(document).ready( function($) {
         $('#category-featured').addClass('active');
         }
         else{
+            $container.isotope({
+            filter: ':not(.category-old-friends)',
+            animationOptions: {
+                duration: 750,
+                easing: 'linear',
+                queue: false
+            }
             $('#all').addClass('active');
         };
         $('.cat a').click(function() {
@@ -43,5 +50,5 @@ jQuery(document).ready( function($) {
     });
 
     });
-	
+    
  
