@@ -27,7 +27,8 @@ jQuery(document).ready( function($) {
                 easing: 'linear',
                 queue: false
             }
-            $('#all').addClass('active');
+        });
+        $('#all').addClass('active');
         };
         $('.cat a').click(function() {
             $('.cat .active').removeClass('active');
