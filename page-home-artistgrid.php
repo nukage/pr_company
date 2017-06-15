@@ -53,7 +53,16 @@ get_header(); ?>
 			endwhile; // End of the loop.
 			?>
  <div class="page-title text-center center wow fadeInUp">
-      <h1>Artists</h1>
+      <h1>
+
+<?php
+  $letter = $_REQUEST['letter'];
+   if ($letter){
+	echo '<a href="/artists/">Artists</a>' . ' - ' . $letter;
+} else{
+	echo 'Artists';
+}
+      	?></h1>
       <hr>
     </div>
 

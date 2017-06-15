@@ -42,7 +42,8 @@ endif;
         'post_type' => array('artist'),
         'post_status' => 'publish',
         'orderby' => 'title',
-        'order' => 'ASC'
+        'order' => 'ASC',
+        'posts_per_page' => -1 
       )
     );
     
@@ -59,7 +60,8 @@ endif;
     'post_type' => 'artist',
     'fields' => 'all',
     'orderby' => 'date',
-    'order' => 'ASC'
+    'order' => 'ASC',
+    'posts_per_page' => -1 
 
 ));
 
@@ -71,7 +73,10 @@ endif;
               // echo 'We currently do not have any artists with that letter';
 
 
-             $results = $query->posts;?>
+             $results = $query->posts;
+           endif;
+
+           ?>
     <div class="categories">
       <ul class="cat">
         <li>
@@ -102,7 +107,7 @@ endif;
       <div class="clearfix"></div>
     </div>
 
-  <?php endif;
+  <?php //endif;
  
   ?>
 
@@ -179,7 +184,7 @@ endif;
       foreach ($results as $post) {  ?>
  
 <?php $allClasses = get_post_class();   ?>  
- <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3   <?php foreach ($allClasses as $class) { echo $class . " "; } ?>">
+ <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3   <?php foreach ($allClasses as $class) { echo $class . " "; } ?>">
           <div class="portfolio-item">
             <div class="hover-bg"> <a href="<?php echo get_permalink($post);?>" title="<?php echo the_title();?>"  >
                    <?php if ( in_category('on-tour') ) :

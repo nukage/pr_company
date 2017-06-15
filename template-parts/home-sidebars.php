@@ -1,36 +1,49 @@
 <div class="row">
-  <div class="col-md-6   home-events wow fadeInUp" data-wow-delay=".2s">      <div class="underline"> 
-                                <h4>UPCOMING EVENTS</h4> 
-                                <a href="<?php echo get_site_url() ; ?>/events" class="btn-view-all pull-right text-right">View All</a> 
-                              </div>
- <?php dynamic_sidebar( 'home1' ); ?> <div class="clearfix"></div></div>
 
+  <?php get_template_part( 'template-parts/home-sidebar1', 'none' ); ?>
  <div class="col-md-5 col-md-push-1 home-releases">
 <div class="underline"> 
-                                <h4>LATEST PRESS RELEASES</h4> 
+                                <h4>Latest Press Releases</h4> 
                                 <a href="<?php echo get_site_url() ; ?>/press-release" class="btn-view-all pull-right text-right">View All</a> 
                              </div>
+           
  
 
 <?php // Display blog posts on any page @ https://m0n.co/l
 
 
-    $the_artist_id = $_REQUEST['the_artist'];
-    $temp = $wp_query; $wp_query= null;
-    $wp_query = new WP_Query( array( 'post_type' => 'artist', 'paged' => $paged, p => $the_artist_id , 'posts_per_page' => 2 ) );
- 
-    while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
+     $args = array( 
+        'numberposts' => '4', 
+        'post_status' => 'publish', 
+        'post_type' => 'press-release' ,
+        'paged' => $paged,
+    );
 
-     <?php if(types_child_posts("press-release")) : ?>
-            <?php $child_posts = types_child_posts("press-release");
-                foreach ($child_posts as $child_post) { ?>
+    $recent = wp_get_recent_posts( $args );
+ 
+ 
+
+ if ( $recent )  : ?>
+            <?php  
+                foreach ( $recent as $item )  { 
+
+                   $artist_id = wpcf_pr_post_get_belongs( $item['ID'], 'artist' );
+                          // Get all the parent (writer) post data
+                          $artist_post = get_post( $artist_id );
+                           
+                          // Get the title of the parent (writer) post
+                          $artist_name = $artist_post->post_title;
+                          // Get the contents of the parent (writer) post
+                          $artist_content = $artist_post->post_content;
+
+                          ?>
                <article class="wow fadeInUp" data-wow-delay=".5s">
   <div class="row">
       <div class="col-sm-3">
 
-        <?php if (has_post_thumbnail($child_post)): ?>
+        <?php if (has_post_thumbnail($item)): ?>
 
-          <a href="<?php echo get_permalink($child_post);?>"><?php echo get_the_post_thumbnail($child_post , 'pr-slider-thumb' , array( 'class' => 'img-responsive' ) );?></a>
+          <a href="<?php echo get_permalink($item['ID']);?>"><?php echo get_the_post_thumbnail($item , 'pr-slider-thumb' , array( 'class' => 'img-responsive' ) );?></a>
 
           
 
@@ -46,11 +59,11 @@
  
 
 <!-- this one -->
-                        <p><a href="<?php echo get_permalink($child_post);?>"><?php echo the_title(); ?></a> &#8226; <?php echo get_the_time('F j, Y', $child_post); ?></p>
+                        <p><a href="<?php echo get_permalink($artist_id);?>"><?php echo get_the_title($artist_id); ?></a> &#8226; <?php echo get_the_time('F j, Y', $item['ID']); ?></p>
      
-<h3><a href="<?php echo get_permalink($child_post);?>"><?php echo $child_post->post_title; ?></a></h3>
+<h3><a href="<?php echo get_permalink($item['ID']);?>"><?php echo get_the_title($item['ID']); ?></a></h3>
    <?php //the_title( '<h3><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' ); ?>  
-      <p><a href="<?php echo esc_url( get_permalink($child_post) ) ; ?>" class="btn-read-more">Read More</a></p>
+      <p><a href="<?php echo esc_url( get_permalink($item['ID']) ) ; ?>" class="btn-read-more">Read More</a></p>
 
 
 
@@ -58,7 +71,7 @@
                   <?php
                 }
            endif;
-           endwhile; ?>
+  ?>
       
    
       </div> <!-- /.col-sm-8 -->

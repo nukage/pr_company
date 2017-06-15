@@ -243,26 +243,68 @@ function editglobalcustomfields() {
 	<?php
 }
 
- 
+ //CUSTOM POSTS 'LATEST PRESS RELEASES' FOR HOMEPAGE
 
 
- 
-   //  add_filter( 'the_content', 'my_artist_filter' );
+ function press_release_recent_posts( $atts = null, $content = null, $tag = null ) {
 
-   //  function my_artist_filter( $content ) {
-   //      if ( isset($_REQUEST['the_artist']) && is_archive() ) {
-   //      	$the_artist_id = wpcf_pr_post_get_belongs( get_the_ID(), 'artist' );
-   //      	echo $the_artist_id;
-			// $the_artist_post = get_post( $the_artist_id );
-			// echo $the_artist_post;
-			// $the_artist_name = $the_artist_post->post_title;
-			// echo $the_artist_name;
-			// 	if ($_REQUEST['artist'] = $the_artist_id){
+     
 
-   //          $content = "<h1>THIE SHIT WORKS</h1>" . $content;
-   //          return $content;
-   //      }
-   //      } else {
-   //          return;
-   //      }
-   //  }
+    $args = array( 
+        'numberposts' => '6', 
+        'post_status' => 'publish', 
+        'post_type' => 'press-release' ,
+        'paged' => $paged,
+    );
+
+    $recent = wp_get_recent_posts( $args );
+
+  if ( $recent ) { ?>
+
+   <section class="overview">
+
+       
+
+      <div class="overview">
+<?php
+        foreach ( $recent as $item ) {
+ $artist_id = wpcf_pr_post_get_belongs( $item['ID'], 'artist' );
+                          // Get all the parent (writer) post data
+                          $artist_post = get_post( $artist_id );
+                           
+                          // Get the title of the parent (writer) post
+                          $artist_name = $artist_post->post_title;
+                          // Get the contents of the parent (writer) post
+                          $artist_content = $artist_post->post_content;
+  if (has_post_thumbnail($item)): ?>
+
+          <a href="<?php echo get_permalink($item['ID']);?>"><?php echo get_the_post_thumbnail($item , 'pr-slider-thumb' , array( 'class' => 'img-responsive' ) );?></a>
+
+          
+
+
+          <?php else : ?>
+
+          <a href="<?php echo get_permalink($item['ID']);?>"><?php echo get_the_post_thumbnail($artist_id , 'pr-slider-thumb' , array( 'class' => 'img-responsive' ) );?></a>
+        <?php endif;
+
+            echo '<a href="' . get_permalink( $item['ID'] ) . '">';
+            echo get_the_post_thumbnail( $item['ID'] , 'pr-slider-thumb' , array( 'class' => 'img-responsive' ));  
+            echo '</a>';
+
+
+
+
+
+          echo get_permalink( $item['ID'] );
+        }
+
+        ?></div></section>
+        <?php
+    }
+
+    
+
+}
+
+add_shortcode( 'recentposts', 'press_release_recent_posts' );
