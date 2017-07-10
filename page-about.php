@@ -101,7 +101,7 @@ get_header(); ?>
              
           </div>
           <div class="col-sm-6 social-info" >
-            <h4><?php echo the_title();?></h4>
+            <h4><?php echo the_title();?></h4> 
            <?php the_field(contact_info); ?> 
           </div>
         </div>

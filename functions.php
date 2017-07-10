@@ -230,13 +230,16 @@ function editglobalcustomfields() {
 	<input type="text" name="pastclients" size="45" value="<?php echo get_option('pastclients'); ?>" /></p>
 	
  
-
+ 	<p><strong>Arists / Clients Text:</strong><br />
+	<input type="text" name="clientstxt" size="45" value="<?php echo get_option('clientstxt'); ?>" /> <br>
+	
+</p>
 	 
 
 	<p><input type="submit" name="Submit" value="Update Options" /></p>
 
 	<input type="hidden" name="action" value="update" />
-	<input type="hidden" name="page_options" value="pastclients" />
+	<input type="hidden" name="page_options" value="pastclients,clientstxt" />
 
 	</form>
 	</div>
