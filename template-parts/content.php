@@ -25,7 +25,7 @@
 		<?php
 		endif; ?>
 	</header><!-- .entry-header -->
-
+<hr>
 	<div class="entry-content">
 		<?php
 			the_content( sprintf(
