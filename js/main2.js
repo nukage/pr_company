@@ -8,7 +8,8 @@ $('.letter').append(' - ' + $letter);
 }
 
         var $container = $('.portfolio-items');
-       
+        var $pastclienttxt= $("#pastclienttxt").html();  
+        var $notpastclienttxt = ':not(.category-' + ($pastclienttxt).replace(/\s+/g, '-').toLowerCase() + ')' ;
         
 // Portfolio Isotope Filter
         if ($('body.home').length > 0)
@@ -25,8 +26,7 @@ $('.letter').append(' - ' + $letter);
         $('#category-featured').addClass('active');
         }
         else{
-        var $pastclienttxt= $("#pastclienttxt").html();  
-        var $notpastclienttxt = ':not(.category-' + $pastclienttxt + ')' ;
+       
             $container.isotope({
             filter:$notpastclienttxt,
             animationOptions: {
@@ -35,8 +35,11 @@ $('.letter').append(' - ' + $letter);
                 queue: false
             }
         });
+
         $('#all').addClass('active');
         };
+        $("#all").attr("data-filter", $notpastclienttxt);
+        
         $('.cat a').click(function() {
             $('.cat .active').removeClass('active');
             $(this).addClass('active');
