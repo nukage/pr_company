@@ -19,7 +19,7 @@ get_header(); ?>
       <h1>Tour</h1>
       <hr>
     </div><!--/.page-title text-center center-->
-
+<div class="row">
    
 
 
@@ -35,7 +35,7 @@ get_header(); ?>
         'post_type' => 'artist', 
        // 'paged' => $paged, 
         //p => $the_artist_id , 
-        //'posts_per_page' => 3, 
+        'posts_per_page' => -1, 
         'meta_key' => 'tour_widget',
         'meta_value' => '',
         'meta_compare' => '=',
@@ -47,15 +47,24 @@ get_header(); ?>
 
     <?php 
      if(get_field(tour_widget)) : ?>
-    <article class="col-sm-6 col-md-4">
+    <article class="col-sm-12 col-md-4 wow fadeInUp" data-wow-delay=".5s">
       <h3> <?php echo the_title(); ?></h3>
    
        <?php the_field(tour_widget); ?>
-    </article>
+
+
+       </article>
+                <?php $counter++;
+                  if ($counter % 3 == 0) {
+                  echo '</div><div class="row">';
+                }
+                ?>
+
+
     <?php endif; ?>
 
            <?php endwhile; ?>
-       <div class="paginate">
+       </div><div class="paginate">
                     <div class="row">
                       <div class="col-sm-3">
                         <div class="pagination">
