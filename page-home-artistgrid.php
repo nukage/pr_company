@@ -58,7 +58,7 @@ get_header(); ?>
 <?php
   $letter = $_REQUEST['letter'];
    if ($letter){
-	echo '<a href="'. get_site_url() .'/artists/">' . get_option('clientstxt') . '</a>' . ' - ' . $letter;
+	echo '<a href="'. get_site_url() .'/' .  strtolower(get_option('clientstxt'))  . '/">' . get_option('clientstxt') . '</a>' . ' <span class="letter"></span>' ;
 } else{
 	echo get_option('clientstxt');;
 }

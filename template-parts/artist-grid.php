@@ -68,7 +68,7 @@ endif;
 ?>
   <?php
         if ($results):
- 
+    echo '<div class="letterholder" style="display:none;">' . $letter . '</div>';
           else: 
               // echo 'We currently do not have any artists with that letter';
 

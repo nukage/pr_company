@@ -1,10 +1,16 @@
 // JavaScript Document
 
-// Portfolio Isotope Filter
 jQuery(document).ready( function($) {
+//Better letter solution for artists
+if ($('.letterholder').length > 0) {
+    var $letter = $('.letterholder').html();
+$('.letter').append(' - ' + $letter);
+}
+
         var $container = $('.portfolio-items');
        
         
+// Portfolio Isotope Filter
         if ($('body.home').length > 0)
         {
         $container.isotope({
