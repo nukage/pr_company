@@ -59,7 +59,15 @@ get_header(); ?>
  
 
 <!-- this one -->
-                        <p><a href="<?php echo get_permalink($child_post);?>"><?php echo the_title(); ?></a> &#8226; <?php echo get_the_time('F j, Y', $child_post); ?></p>
+                        <p><a href="<?php echo get_permalink($child_post);
+                        $date = $child_post->release_date; 
+
+
+// make date object
+$date = new DateTime($date);
+
+?>">
+<?php echo the_title(); ?></a> &#8226; <?php echo $date->format('M j, Y'); ?> </p>
      
 <h3><a href="<?php echo get_permalink($child_post);?>"><?php echo $child_post->post_title; ?></a></h3>
    <?php //the_title( '<h3><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' ); ?>  
