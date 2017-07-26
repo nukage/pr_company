@@ -230,7 +230,7 @@ $date = new DateTime($date);
 
 
                                          <div>
-                                            <strong>Release Date: </strong><?php echo $date->format('j.m.Y'); ?> <br>
+                                            <strong>Release Date: </strong><?php echo $date->format('M j, Y'); ?> <br>
                                             <strong>Label: </strong><?php echo $child_post->label; ?> 
                                          </div>
                                     </div>
