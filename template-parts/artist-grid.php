@@ -212,6 +212,16 @@ echo '<div class="tour-icon">On Tour</div>';
       
 
 </div>
+
     </div>
 
+    
+
+
   </div><!-- Container -->
+
+  <div id="oldclientslist" class="invisible"><h4><?php echo get_option('oldclientstitle'); ?></h4>
+<p>
+<?php echo get_option('oldclients'); ?>
+</p>
+</div>

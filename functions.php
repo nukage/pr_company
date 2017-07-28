@@ -234,12 +234,27 @@ function editglobalcustomfields() {
 	<input type="text" name="clientstxt" size="45" value="<?php echo get_option('clientstxt'); ?>" /> <br>
 	
 </p>
+
+<p><strong>Older Clients Section Title:</strong><br />
+	<input type="text" name="oldclientstitle" size="45" value="<?php echo get_option('oldclientstitle'); ?>" /> <br>
+	
+</p>
+
+ 	<p><strong>Older Clients List:</strong><br />
+	<textarea name="oldclients" cols="50" rows="5" >
+<?php echo get_option('oldclients'); ?>
+</textarea>
+
+
+ <br>
+	
+</p>
 	 
 
 	<p><input type="submit" name="Submit" value="Update Options" /></p>
 
 	<input type="hidden" name="action" value="update" />
-	<input type="hidden" name="page_options" value="pastclients,clientstxt" />
+	<input type="hidden" name="page_options" value="pastclients,clientstxt,oldclients,oldclientstitle" />
 
 	</form>
 	</div>

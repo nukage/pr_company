@@ -41,6 +41,12 @@ $('.letter').append(' - ' + $letter);
         $("#all").attr("data-filter", $notpastclienttxt);
         
         $('.cat a').click(function() {
+            if ( $(this).is("#category-past-clients")) {
+                    $('#oldclientslist').removeClass('invisible');
+            }
+            else {
+                $('#oldclientslist').addClass('invisible');
+            };
             $('.cat .active').removeClass('active');
             $(this).addClass('active');
             var selector = $(this).attr('data-filter');
